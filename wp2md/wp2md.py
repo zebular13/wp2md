@@ -316,19 +316,19 @@ def get_path(item_type, file_name=None, data=None):
                        day=time.strftime("%d"),
                        source=os.path.basename(conf['source_file']))
 
-    if file_name:
+    #if file_name:
         relpath = file_name
-    else:
-        name = data.get('post_name', '').strip()
-        name = name or data.get('post_id', UNTITLED)
-        relpath = get_path_fmt(item_type, data)
-        field = FIELD_MAP.get('post_date', 'post_date')
-        post_date = data[field]
-        relpath = relpath.format(year=time.strftime("%Y", post_date),
-                                 month=time.strftime("%m", post_date),
-                                 day=time.strftime("%d", post_date),
-                                 name=name,
-                                 title=name)
+    #else:
+        #name = data.get('post_name', '').strip()
+        #name = name or data.get('post_id', UNTITLED)
+        #relpath = get_path_fmt(item_type, data)
+        #field = FIELD_MAP.get('post_date', 'post_date')
+        #post_date = data[field]
+        #relpath = relpath.format(year=time.strftime("%Y", post_date),
+                                 #month=time.strftime("%m", post_date),
+                                 #day=time.strftime("%d", post_date),
+                                 #name=name,
+                                 #title=name)
 
     return uniquify(os.path.join(os.path.abspath(root), relpath))
 
